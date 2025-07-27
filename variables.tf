@@ -12,6 +12,11 @@ variable "location" {
 variable "sql_server_name" {
   description = "Name of the Azure SQL Server"
   type        = string
+  
+  validation {
+    condition     = length(var.sql_server_name) >= 1 && length(var.sql_server_name) <= 63
+    error_message = "SQL Server name must be between 1 and 63 characters."
+  }
 }
 
 variable "sql_admin_username" {
@@ -23,6 +28,11 @@ variable "sql_admin_password" {
   description = "Administrator password for the SQL server"
   type        = string
   sensitive   = true
+  
+  validation {
+    condition     = length(var.sql_admin_password) > 8
+    error_message = "SQL Admin password must be at least 8 characters long."
+  }
 }
 
 variable "database_name" {

@@ -12,6 +12,7 @@ resource "azurerm_mssql_server" "sql_server" {
   administrator_login_password = var.sql_admin_password
 }
 
+
 resource "azurerm_mssql_database" "sql_db" {
   name           = var.database_name
   server_id      = azurerm_mssql_server.sql_server.id
@@ -23,3 +24,5 @@ resource "azurerm_mssql_database" "sql_db" {
     prevent_destroy = true
   }
 }
+
+
