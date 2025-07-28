@@ -1,7 +1,3 @@
-# main.tf
-provider "azurerm" {
-  features {}
-}
 
 resource "azurerm_mssql_server" "sql_server" {
   name                         = var.sql_server_name
