@@ -17,7 +17,7 @@ resource "azurerm_mssql_database" "sql_db" {
   max_size_gb    = 5
   zone_redundant = false
   lifecycle {
-    prevent_destroy = true
+    #prevent_destroy = true
   }
 }
 
