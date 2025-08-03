@@ -46,4 +46,3 @@ module "sql" {
 | `sql_server_name` | Name of the SQL server   |
 | `sql_db_name`     | Name of the SQL database |
 
-

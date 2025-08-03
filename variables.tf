@@ -1,47 +1,71 @@
-# variables.tf
+variable "sql_server_name" {
+  description = "Name of the SQL Server"
+  type        = string
+}
+
+variable "database_name" {
+  description = "Name of the SQL Database"
+  type        = string
+}
+
 variable "resource_group_name" {
-  description = "The name of the resource group"
+  description = "Resource Group for SQL resources"
   type        = string
 }
 
 variable "location" {
-  description = "Azure location (e.g., eastus)"
+  description = "Azure region"
   type        = string
-}
-
-variable "sql_server_name" {
-  description = "Name of the Azure SQL Server"
-  type        = string
-  
-  validation {
-    condition     = length(var.sql_server_name) >= 1 && length(var.sql_server_name) <= 63
-    error_message = "SQL Server name must be between 1 and 63 characters."
-  }
 }
 
 variable "sql_admin_username" {
-  description = "Administrator username for the SQL server"
+  description = "Admin username for SQL Server"
   type        = string
 }
 
 variable "sql_admin_password" {
-  description = "Administrator password for the SQL server"
+  description = "Admin password for SQL Server"
   type        = string
   sensitive   = true
-  
-  validation {
-    condition     = length(var.sql_admin_password) > 8
-    error_message = "SQL Admin password must be at least 8 characters long."
-  }
 }
 
-variable "database_name" {
-  description = "Name of the SQL database"
+variable "sql_server_version" {
+  description = "SQL Server version"
   type        = string
+  default     = "12.0"
 }
 
 variable "sku_name" {
-  description = "The SKU for the SQL database (e.g., Basic, S0, P1)"
+  description = "SKU for the SQL Database"
   type        = string
-  default     = "S0"
+}
+
+variable "collation" {
+  description = "Database collation setting"
+  type        = string
+  default     = "SQL_Latin1_General_CP1_CI_AS"
+}
+
+variable "max_size_gb" {
+  description = "Maximum size of the database in GB"
+  type        = number
+  default     = 5
+}
+
+variable "zone_redundant" {
+  description = "Whether the database is zone redundant"
+  type        = bool
+  default     = false
+}
+
+variable "prevent_destroy" {
+  description = "Whether to prevent destroy for the database"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "Common tags"
+  type        = map(string)
+  default     = {}
 }
