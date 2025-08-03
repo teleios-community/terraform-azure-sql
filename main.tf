@@ -17,3 +17,11 @@ resource "azurerm_mssql_database" "sql_db" {
   zone_redundant = var.sql_zone_redundant
   tags           = var.tags
 }
+
+# 🔐 Allow Azure Services to Access SQL Server
+resource "azurerm_mssql_firewall_rule" "allow_azure_services" {
+  name             = "AllowAzureServices"
+  server_id        = azurerm_mssql_server.sql_server.id
+  start_ip_address = "0.0.0.0"
+  end_ip_address   = "0.0.0.0"
+}
