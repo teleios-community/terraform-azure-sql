@@ -3,7 +3,7 @@ variable "sql_server_name" {
   type        = string
 }
 
-variable "database_name" {
+variable "sql_database_name" {
   description = "Name of the SQL Database"
   type        = string
 }
@@ -35,30 +35,30 @@ variable "sql_server_version" {
   default     = "12.0"
 }
 
-variable "sku_name" {
+variable "sql_sku_name" {
   description = "SKU for the SQL Database"
   type        = string
 }
 
-variable "collation" {
+variable "sql_collation" {
   description = "Database collation setting"
   type        = string
   default     = "SQL_Latin1_General_CP1_CI_AS"
 }
 
-variable "max_size_gb" {
+variable "sql_max_size_gb" {
   description = "Maximum size of the database in GB"
   type        = number
   default     = 5
 }
 
-variable "zone_redundant" {
+variable "sql_zone_redundant" {
   description = "Whether the database is zone redundant"
   type        = bool
   default     = false
 }
 
-variable "prevent_destroy" {
+variable "sql_prevent_destroy" {
   description = "Whether to prevent destroy for the database"
   type        = bool
   default     = false

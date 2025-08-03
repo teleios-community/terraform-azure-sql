@@ -9,16 +9,16 @@ resource "azurerm_mssql_server" "sql_server" {
 }
 
 resource "azurerm_mssql_database" "sql_db" {
-  name           = var.database_name
+  name           = var.sql_database_name
   server_id      = azurerm_mssql_server.sql_server.id
-  sku_name       = var.sku_name
-  collation      = var.collation
-  max_size_gb    = var.max_size_gb
-  zone_redundant = var.zone_redundant
+  sku_name       = var.sql_sku_name
+  collation      = var.sql_collation
+  max_size_gb    = var.sql_max_size_gb
+  zone_redundant = var.sql_zone_redundant
 
   tags = var.tags
 
   lifecycle {
-    prevent_destroy = var.prevent_destroy
+    prevent_destroy = var.sql_prevent_destroy
   }
 }
