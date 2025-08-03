@@ -8,14 +8,33 @@ variable "sql_database_name" {
   type        = string
 }
 
-variable "resource_group_name" {
-  description = "Resource Group for SQL resources"
-  type        = string
+variable "sql_max_size_gb" {
+  description = "Maximum size of the database in GB"
+  type        = number
 }
 
-variable "location" {
-  description = "Azure region"
+variable "sql_server_version" {
+  description = "SQL Server version"
   type        = string
+  default     = "12.0"
+}
+
+variable "sql_collation" {
+  description = "Database collation setting"
+  type        = string
+  default     = "SQL_Latin1_General_CP1_CI_AS"
+}
+
+variable "sql_zone_redundant" {
+  description = "Whether the database is zone redundant"
+  type        = bool
+  default     = false
+}
+
+variable "sql_prevent_destroy" {
+  description = "Whether to prevent destroying the database"
+  type        = bool
+  default     = false
 }
 
 variable "sql_admin_username" {
@@ -29,39 +48,24 @@ variable "sql_admin_password" {
   sensitive   = true
 }
 
-variable "sql_server_version" {
-  description = "SQL Server version"
-  type        = string
-  default     = "12.0"
-}
-
 variable "sql_sku_name" {
   description = "SKU for the SQL Database"
   type        = string
 }
 
-variable "sql_collation" {
-  description = "Database collation setting"
+variable "resource_group_name" {
+  description = "Resource Group for SQL resources"
   type        = string
-  default     = "SQL_Latin1_General_CP1_CI_AS"
 }
 
-variable "sql_max_size_gb" {
-  description = "Maximum size of the database in GB"
-  type        = number
-  default     = 5
+variable "location" {
+  description = "Azure region for resources"
+  type        = string
 }
 
-variable "sql_zone_redundant" {
-  description = "Whether the database is zone redundant"
-  type        = bool
-  default     = false
-}
-
-variable "sql_prevent_destroy" {
-  description = "Whether to prevent destroy for the database"
-  type        = bool
-  default     = false
+variable "environment" {
+  description = "Deployment environment (e.g., dev, prod)"
+  type        = string
 }
 
 variable "tags" {

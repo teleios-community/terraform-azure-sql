@@ -15,8 +15,7 @@ resource "azurerm_mssql_database" "sql_db" {
   collation      = var.sql_collation
   max_size_gb    = var.sql_max_size_gb
   zone_redundant = var.sql_zone_redundant
-
-  tags = var.tags
+  tags           = var.tags
 
   lifecycle {
     prevent_destroy = var.sql_prevent_destroy
