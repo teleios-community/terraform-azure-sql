@@ -31,12 +31,6 @@ variable "sql_zone_redundant" {
   default     = false
 }
 
-#variable "sql_prevent_destroy" {
- # description = "Whether to prevent destroying the database"
-  #type        = bool
-  #default     = false
-#}
-
 variable "sql_admin_username" {
   description = "Admin username for SQL Server"
   type        = string

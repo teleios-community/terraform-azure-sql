@@ -16,8 +16,5 @@ resource "azurerm_mssql_database" "sql_db" {
   max_size_gb    = var.sql_max_size_gb
   zone_redundant = var.sql_zone_redundant
   tags           = var.tags
-
-  lifecycle {
-    prevent_destroy = var.sql_prevent_destroy
-  }
 }
+
