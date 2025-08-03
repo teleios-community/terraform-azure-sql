@@ -17,4 +17,3 @@ resource "azurerm_mssql_database" "sql_db" {
   zone_redundant = var.sql_zone_redundant
   tags           = var.tags
 }
-
